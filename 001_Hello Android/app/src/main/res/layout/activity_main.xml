@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#ede7f6"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/me"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hi, I'm MAHMUD"
+                android:textSize="32sp"
+                android:textColor="#000072"
+                android:gravity="center"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/viewDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am enthusiastic about pursuing a career as a software developer. With a solid foundation in programming languages, problem-solving skills, and a creative mindset, I aspire to build user-friendly applications and software solutions. I thrive on challenges and am passionate about transforming ideas into functional code. I'm dedicated to staying updated with the latest industry trends and technologies to deliver innovative solutions. My ultimate goal is to contribute to the ever-evolving world of technology, creating software that simplifies and enhances people's lives."
+                android:textSize="16sp"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="15dp"
+                android:textColor="#000072"
+                android:gravity="center"
+                ></TextView>
+
+            <Button
+                android:id="@+id/clickBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button Pe Click Kare Nehi to asehi Rahegi"
+                android:layout_marginVertical="10dp"
+                ></Button>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+
+
+
+
+
+

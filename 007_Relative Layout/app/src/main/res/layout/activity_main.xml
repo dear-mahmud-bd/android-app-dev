@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="20dp"
+    android:background="#189AB4"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layBtm"
+        android:layout_alignParentTop="true"
+        android:background="#A9216395"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/profileView"
+                android:layout_width="match_parent"
+                android:layout_height="370dp"
+                app:lottie_url="https://assets-v2.lottiefiles.com/a/77437d8e-116a-11ee-aa60-6707e607e27e/0CCXj4aFUD.lottie"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:layout_marginVertical="10dp"
+                android:text="Ami TOPU (^_^)"
+                android:textSize="40sp"
+                android:textColor="#4FFFF1"
+                android:background="@drawable/custom_style"
+                />
+            <ImageView
+                android:id="@+id/linkImg"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/cover"
+                android:layout_marginVertical="15dp"
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/codingView"
+                android:layout_width="match_parent"
+                android:layout_height="370dp"
+                app:lottie_rawRes="@raw/coding_1"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layBtm"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="#05445E"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:text="Button_1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:text="Button_2" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:text="Button_3" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="80dp"-->
+    <!--        android:src="@drawable/comment"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_alignParentRight="true"-->
+    <!--        ></ImageView>-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imgMid"-->
+    <!--        android:layout_width="150dp"-->
+    <!--        android:layout_height="120dp"-->
+    <!--        android:src="@drawable/cover"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        ></ImageView>-->
+
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="35sp"-->
+    <!--        android:text="Coder Coding"-->
+    <!--        android:layout_above="@id/imgMid"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        ></TextView>-->

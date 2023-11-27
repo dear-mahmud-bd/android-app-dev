@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/cvr"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:src="@drawable/cover"
+            android:scaleType="centerCrop"
+            >
+        </ImageView>
+
+        <!-- Start Album -->
+        <LinearLayout
+            android:id="@+id/content1"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:background="#DCDCDC">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:src="@drawable/cover"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="How Indian Students Network"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:maxLines="2"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="This video is a clip from the Splendid Minds podcast. Full video available on my YouTube channel and Spotify."
+                    android:textSize="14sp"
+                    android:textStyle="normal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Duration: 8:19"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- End Album -->
+
+        <!-- Start Album -->
+        <LinearLayout
+            android:id="@+id/content2"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:background="#DCDCDC">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:src="@drawable/cover"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 Years of Coding in 4 Minutes - A Short Movie"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:maxLines="2"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Are you worried about placements/internships? Want to prepare for companies like Microsoft, Amazon and Google?"
+                    android:textSize="14sp"
+                    android:maxLines="3"
+                    android:textStyle="normal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Duration: 3:48"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- End Album -->
+
+        <!-- Start Album -->
+        <LinearLayout
+            android:id="@+id/content3"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:background="#DCDCDC">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:src="@drawable/cover"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Proposing to a glass of water!!! 😂"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:maxLines="2"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="UPSC Topper Mock Interview, Akshat Jain (Rank 2, CSE 2018)"
+                    android:textSize="14sp"
+                    android:textStyle="normal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Duration: 0:20"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- End Album -->
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#ede7f6"
+    android:padding="20dp"
+    android:visibility="visible"
+    android:id="@+id/mainLayout"
+    >
+    <!--android:background="#afb4af"-->
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:src="@drawable/ai"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        ></ImageView>
+
+
+    <Button
+        android:id="@+id/layoutGone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout Gone" />
+
+    <Button
+        android:id="@+id/bGone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gone Image" />
+
+    <Button
+        android:id="@+id/bHide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hide Image" />
+
+    <Button
+        android:id="@+id/bShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Image" />
+
+    <Button
+        android:id="@+id/bToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Toast" />
+
+
+</LinearLayout>
