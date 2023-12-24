@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="#FEFEFE"
+    tools:context=".PatientProfileFragment">
+
+
+        <ImageView
+            android:id="@+id/imagePatient"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/patient"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/textPatientID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient ID: XXXXXX"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient Name"
+            android:textSize="28sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/textDOB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth: DD/MM/YYYY"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/textBloodType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Blood Group: O+"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/textFamilyDisease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Family Disease: None"
+            android:layout_marginTop="8dp"/>
+
+</LinearLayout>

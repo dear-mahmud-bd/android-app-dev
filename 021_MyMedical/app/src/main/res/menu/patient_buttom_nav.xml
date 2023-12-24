@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="HOME"
-        android:icon="@drawable/home"/>
-    <item
-        android:id="@+id/noti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Notification"
-        android:icon="@drawable/noti"/>
-    <item
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Notification"
+        android:title="Patient Profile"
         android:icon="@drawable/profile"/>
+    <item
+        android:id="@+id/prescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Prescription"
+        android:icon="@drawable/prescription"/>
+    <item
+        android:id="@+id/report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Report"
+        android:icon="@drawable/report"/>
 
 </menu>
