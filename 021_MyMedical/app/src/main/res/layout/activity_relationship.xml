@@ -5,30 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="#FEFEFE"
     tools:context=".RelationshipActivity">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabRelationLayout"
+    <ImageView
+        android:id="@+id/imagePatient"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/patient"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/textPatientID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient ID: XXXXXX"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient Name"
+        android:textSize="28sp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth: DD/MM/YYYY"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/textBloodType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Blood Group: O+"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/textFamilyDisease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Family Disease: None"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/medicalHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Patient"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Medical History"
-            />
-    </com.google.android.material.tabs.TabLayout>
-
-    <FrameLayout
-        android:id="@+id/frameRelationLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F4F4F4"
+        android:text="Medical History"
         />
+
+    <Button
+        android:id="@+id/treatment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Treatment"
+        />
+
 
 </LinearLayout>

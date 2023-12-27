@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
                 finish();
             }
-        }, 1000);
+        }, 700);
 
     }
 }

@@ -6,36 +6,28 @@
     android:padding="20dp"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".AddPrescriptionFragment">
+    tools:context=".AddReportFragment">
 
     <EditText
-        android:id="@+id/editTextPatientProblem"
+        android:id="@+id/editTextPatientTestName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp"
         android:inputType="textMultiLine"
-        android:hint="Patient Problem" />
+        android:hint="Test Name" />
 
     <EditText
-        android:id="@+id/editTextMedicalTest"
+        android:id="@+id/editTextMedicalTestResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp"
         android:inputType="textMultiLine"
-        android:hint="Medical Test" />
-
-    <EditText
-        android:id="@+id/editTextTreatmentMedicine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:inputType="textMultiLine"
-        android:hint="Treatment Medicine" />
+        android:hint="Test Result" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Prescreption"
+        android:text="Add Report"
         />
 
 </LinearLayout>

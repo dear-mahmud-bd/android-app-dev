@@ -17,6 +17,12 @@
         android:theme="@style/Theme.MyMedical"
         tools:targetApi="31">
         <activity
+            android:name=".MedicalHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TreatmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".RelationshipActivity"
             android:exported="false" />
         <activity
