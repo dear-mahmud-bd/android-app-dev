@@ -6,8 +6,8 @@
     android:orientation="vertical"
     tools:context=".PatientReportFragment">
 
-
     <TextView
+        android:id="@+id/reportErrorMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -16,158 +16,25 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-
-    <RelativeLayout
-        android:layout_width="380dp"
+    <ProgressBar
+        android:id="@+id/patientProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/roundedbg"
-        android:layout_gravity="center"
-        tools:ignore="NestedScrolling"
-        android:layout_marginTop="15dp">
+        />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="80dp"
+        >
+        <ListView
+            android:id="@+id/reportListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:text="Date"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/calendar"
-                    android:contentDescription="Date Icon"
-                    android:paddingStart="2dp"
-                    android:paddingEnd="2dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Dec 17, 2023"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Patient Info"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/black"
-                    />
-
-                <TextView
-                    android:id="@+id/patientname"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Name: "
-                    />
-
-                <TextView
-                    android:id="@+id/patientage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Age: "
-                    />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Test Info"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/black"
-                    />
-
-                <TextView
-                    android:id="@+id/medicine"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text=" Blood Test \n Dengue Test\n Thanda Test\n Gorom Test"
-                    />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Test Results"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/black"
-                    />
-
-                <TextView
-                    android:id="@+id/test"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text=" Blood Thik Ase\n Dengue hoy nai\n Thanda lage nai\n Gorom o lage nai"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-
-
+            android:listSelector="@android:color/transparent"
+            />
+    </LinearLayout>
 
 </LinearLayout>

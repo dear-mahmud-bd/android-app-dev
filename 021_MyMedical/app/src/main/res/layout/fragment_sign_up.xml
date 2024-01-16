@@ -15,7 +15,6 @@
             android:orientation="vertical"
             android:gravity="center"
             >
-
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="190dp"
@@ -29,6 +28,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"/>
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <EditText
                 android:id="@+id/editTextName"
                 android:layout_width="match_parent"
@@ -38,14 +44,16 @@
                 android:padding="10dp"
                 android:layout_marginBottom="16dp"/>
 
-            <EditText
-                android:id="@+id/editTextDOB"
+            <TextView
+                android:id="@+id/textViewDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date Of Birth"
-                android:inputType="textPersonName"
+                android:hint="Date Of Birth [Year-Month-Day]"
                 android:padding="10dp"
+                android:background="@drawable/edit_text_background"
+                android:focusable="false"
                 android:layout_marginBottom="16dp"/>
+
 
             <EditText
                 android:id="@+id/editTextBlood"

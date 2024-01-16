@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -13,6 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
 public class PatientActivity extends AppCompatActivity {
+    String patientId;
     PatientProfileFragment patientProfileFragment = new PatientProfileFragment();
     PatientPrescriptionFragment patientPrescriptionFragment = new PatientPrescriptionFragment();
     PatientReportFragment patientReportFragment = new PatientReportFragment();
@@ -21,6 +23,13 @@ public class PatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
+        Intent intent = getIntent();
+        if (intent.hasExtra("id")) {
+            patientId = intent.getStringExtra("id");
+        }
+        patientProfileFragment.setPatientId(patientId);
+        patientPrescriptionFragment.setPatientId(patientId);
+        patientReportFragment.setPatientId(patientId);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
 
@@ -44,8 +53,5 @@ public class PatientActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 }

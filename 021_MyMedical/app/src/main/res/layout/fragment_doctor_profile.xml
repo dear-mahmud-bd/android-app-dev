@@ -18,11 +18,18 @@
         android:layout_marginTop="30dp"/>
 
     <TextView
-        android:id="@+id/textPatientID"
+        android:id="@+id/textDoctorID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Doctor ID: XXXXXX"
         android:layout_marginTop="8dp"/>
+
+    <ProgressBar
+        android:id="@+id/doctorProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/textName"
@@ -36,22 +43,22 @@
         android:id="@+id/textDOB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date of Birth: DD/MM/YYYY"
+        android:text="Date of Birth: YYYY-MM-DD"
         android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/textBloodType"
+        android:id="@+id/textDegree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Degree: MBBS"
+        android:text="Degree: NONE"
         android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/textFamilyDisease"
+        android:id="@+id/textSpecility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Specility: Medicine"
+        android:text="Speciality: NONE"
         android:textSize="16sp"
         android:layout_marginTop="8dp"/>
 

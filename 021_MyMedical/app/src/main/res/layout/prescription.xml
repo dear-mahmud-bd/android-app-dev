@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbg"
+        android:layout_gravity="center"
+        android:layout_marginVertical="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/calendar"
+                    android:contentDescription="Date Icon"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Feb, 2024"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Doctor's Details"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/doctorname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Name: "
+                    />
+
+                <TextView
+                    android:id="@+id/doctordegree"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Degree: "
+                    />
+
+                <TextView
+                    android:id="@+id/doctorspeciality"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Speciality: "
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Patient's Details"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/patientname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Name: "
+                    />
+
+                <TextView
+                    android:id="@+id/patientage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Age: "
+                    />
+
+                <TextView
+                    android:id="@+id/patientproblem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Problem: "
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Medicines"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:text="Peracitamol - 3 bela\nIbuprofen - 2 bela"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Tests"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/test"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="NONE"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

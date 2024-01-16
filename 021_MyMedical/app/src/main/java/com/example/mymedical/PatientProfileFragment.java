@@ -4,61 +4,86 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PatientProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+
 public class PatientProfileFragment extends Fragment {
+    TextView textPatientID, textName, textDOB, textBloodType, textFamilyDisease;
+    ProgressBar profileProgressBar;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public PatientProfileFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PatientProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PatientProfileFragment newInstance(String param1, String param2) {
-        PatientProfileFragment fragment = new PatientProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    String patientId;
+    public void setPatientId(String patientId) { this.patientId = patientId; }
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_patient_profile, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_patient_profile, container, false);
+
+        textPatientID = fragmentView.findViewById(R.id.textPatientID);
+        textName = fragmentView.findViewById(R.id.textName);
+        textDOB = fragmentView.findViewById(R.id.textDOB);
+        textBloodType = fragmentView.findViewById(R.id.textBloodType);
+        textFamilyDisease = fragmentView.findViewById(R.id.textFamilyDisease);
+        profileProgressBar = fragmentView.findViewById(R.id.profileProgressBar);
+
+        RequestQueue queue = Volley.newRequestQueue(requireContext());
+        profileProgressBar.setVisibility(View.VISIBLE);
+        String url = "https://boom-test.000webhostapp.com/my-medical/patient_profile.php?paitent_id="+patientId;
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("serverResponse", response);
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            String patientName = jsonObject.getString("name");
+                            String dob = jsonObject.getString("birth");
+                            String bloodType = jsonObject.getString("blood");
+                            String familyDisease = jsonObject.getString("family_diseas");
+
+                            textPatientID.setText("Patient ID: " + patientId);
+                            textName.setText("Name: " + patientName);
+                            textDOB.setText("Birth[Y-M-D]: " + dob);
+                            textBloodType.setText("Blood Type: " + bloodType);
+                            textFamilyDisease.setText("Family Disease: " + familyDisease);
+
+                            profileProgressBar.setVisibility(View.GONE);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } finally {
+                            profileProgressBar.setVisibility(View.GONE);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                textName.setText("Error! Try Again");
+            }
+        });
+        queue.add(stringRequest);
+
+        return fragmentView;
     }
 }

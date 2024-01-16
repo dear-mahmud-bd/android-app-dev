@@ -25,6 +25,13 @@
             android:text="Patient ID: XXXXXX"
             android:layout_marginTop="8dp"/>
 
+        <ProgressBar
+            android:id="@+id/profileProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/textName"
             android:layout_width="wrap_content"
@@ -37,7 +44,7 @@
             android:id="@+id/textDOB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date of Birth: DD/MM/YYYY"
+            android:text="Date of Birth: YYYY-MM-DD"
             android:layout_marginTop="8dp"/>
 
         <TextView
@@ -45,14 +52,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Blood Group: O+"
+            android:text="Blood Group: NULL"
             android:layout_marginTop="8dp"/>
 
         <TextView
             android:id="@+id/textFamilyDisease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Family Disease: None"
+            android:text="Family Disease: NULL"
             android:layout_marginTop="8dp"/>
 
 </LinearLayout>

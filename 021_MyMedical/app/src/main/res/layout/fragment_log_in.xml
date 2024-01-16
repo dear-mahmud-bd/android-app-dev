@@ -29,8 +29,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"/>
 
+        <ProgressBar
+            android:id="@+id/progressLBar"
+            style="?android:attr/progressBarStyle"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/editTextLEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -39,7 +46,7 @@
 
         <!-- Password EditText -->
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editTextLPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
