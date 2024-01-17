@@ -82,39 +82,59 @@ public class SignUpFragment extends Fragment {
                 } else if (usertype.equals("User Type")) {
                     Toast.makeText(getActivity(), "Select a User type", Toast.LENGTH_SHORT).show();
                 } else {
-                    String url = "https://boom-test.000webhostapp.com/my-medical/sign_up.php?usertype="+usertype+ "&name="+name+ "&dob="+dobText+ "&blood="+blood+ "&email="+email+ "&id="+password ;
-
                     RequestQueue queue = Volley.newRequestQueue(requireContext());
-
+                    String chq = "https://boom-test.000webhostapp.com/my-medical/unique_email.php?email="+email+ "&table_name="+usertype;
                     progressBar.setVisibility(View.VISIBLE);
-                    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    StringRequest stringReq = new StringRequest(Request.Method.GET, chq,
                             new Response.Listener<String>() {
                                 @Override
-                                public void onResponse(String response) {
-                                    // Log.d("serverRes", response);
-                                    progressBar.setVisibility(View.GONE);
-                                    new AlertDialog.Builder(requireContext())
-                                            .setTitle("Response")
-                                            .setMessage(response)
-                                            .show();
+                                public void onResponse(String res) {
+                                    // Display the first 500 characters of the response string.
+                                    if(res.equals("yes")){
+                                        Toast.makeText(requireContext(), "This mail already taken", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        String url = "https://boom-test.000webhostapp.com/my-medical/sign_up.php?usertype="+usertype+ "&name="+name+ "&dob="+dobText+ "&blood="+blood+ "&email="+email+ "&id="+password ;
+                                        progressBar.setVisibility(View.VISIBLE);
+                                        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                                                new Response.Listener<String>() {
+                                                    @Override
+                                                    public void onResponse(String response) {
+                                                        // Log.d("serverRes", response);
+                                                        progressBar.setVisibility(View.GONE);
+                                                        new AlertDialog.Builder(requireContext())
+                                                                .setTitle("Registration Successful !")
+                                                                .setMessage(response)
+                                                                .show();
 
-                                    editTextName.setText("");
-                                    editTextBlood.setText("");
-                                    emailEditText.setText("");
-                                    passwordEditText.setText("");
-                                    confirmPasswordEditText.setText("");
-                                    // textViewDOB.setHint("Date Of Birth [Year-Month-Day]");
+                                                        editTextName.setText("");
+                                                        editTextBlood.setText("");
+                                                        emailEditText.setText("");
+                                                        passwordEditText.setText("");
+                                                        confirmPasswordEditText.setText("");
+                                                        // textViewDOB.setHint("Date Of Birth [Year-Month-Day]");
+                                                    }
+                                                }, new Response.ErrorListener() {
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {
+                                                Log.d("serverError", String.valueOf(error));
+                                                // Toast.makeText(MainActivity.this, "That didn't work!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(requireContext(), "That didn't work! ", Toast.LENGTH_LONG).show();
+                                                progressBar.setVisibility(View.GONE);
+                                            }
+                                        });
+                                        queue.add(stringRequest);
+                                    }
                                 }
                             }, new Response.ErrorListener() {
                         @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("serverError", String.valueOf(error));
+                        public void onErrorResponse(VolleyError err) {
+                            Log.d("serverError", String.valueOf(err));
                             // Toast.makeText(MainActivity.this, "That didn't work!", Toast.LENGTH_SHORT).show();
                             Toast.makeText(requireContext(), "That didn't work! ", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     });
-                    queue.add(stringRequest);
+                    queue.add(stringReq);
                 }
             }
         });

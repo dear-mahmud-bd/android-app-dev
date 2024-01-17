@@ -18,7 +18,7 @@
         android:textSize="16sp"
         android:drawablePadding="8dp"
         android:inputType="text"
-        android:hint="Enter Patient ID"
+        android:hint="Enter @PatientID"
         />
 
     <ProgressBar
