@@ -40,9 +40,10 @@
                     android:paddingEnd="2dp"/>
 
                 <TextView
+                    android:id="@+id/reportDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Feb, 2024"
+                    android:text="Mar, 2024"
                     android:textStyle="bold"
                     android:gravity="center"/>
             </LinearLayout>

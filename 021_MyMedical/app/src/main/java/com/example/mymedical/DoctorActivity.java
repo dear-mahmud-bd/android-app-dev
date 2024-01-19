@@ -3,7 +3,9 @@ package com.example.mymedical;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -14,15 +16,21 @@ public class DoctorActivity extends AppCompatActivity {
     String doctorId;
     DoctorProfileFragment doctorProfileFragment = new DoctorProfileFragment();
     DoctorFindPatientFragment doctorFindPatientFragment = new DoctorFindPatientFragment();
-
+    SharedPreferences sharedPreferencesD;
+    SharedPreferences.Editor editorD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
 
+        sharedPreferencesD = getSharedPreferences("Loginfileasdoctor", Context.MODE_PRIVATE);
+        editorD = sharedPreferencesD.edit();
+
         Intent intent = getIntent();
         if (intent.hasExtra("id")) {
             doctorId = intent.getStringExtra("id");
+        } else {
+            doctorId = sharedPreferencesD.getString("profileD", "");
         }
         doctorProfileFragment.setDoctorId(doctorId);
         doctorFindPatientFragment.setDoctorId(doctorId);

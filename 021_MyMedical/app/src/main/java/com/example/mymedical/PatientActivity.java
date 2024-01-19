@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,14 +20,22 @@ public class PatientActivity extends AppCompatActivity {
     PatientProfileFragment patientProfileFragment = new PatientProfileFragment();
     PatientPrescriptionFragment patientPrescriptionFragment = new PatientPrescriptionFragment();
     PatientReportFragment patientReportFragment = new PatientReportFragment();
+    SharedPreferences sharedPreferencesP;
+    SharedPreferences.Editor editorP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
+
+        sharedPreferencesP = getSharedPreferences("Loginfileaspatiant", Context.MODE_PRIVATE);
+        editorP = sharedPreferencesP.edit();
+
         Intent intent = getIntent();
         if (intent.hasExtra("id")) {
             patientId = intent.getStringExtra("id");
+        } else {
+            patientId = sharedPreferencesP.getString("profileP", "");
         }
         patientProfileFragment.setPatientId(patientId);
         patientPrescriptionFragment.setPatientId(patientId);

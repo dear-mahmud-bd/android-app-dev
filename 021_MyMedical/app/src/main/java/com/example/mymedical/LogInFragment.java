@@ -221,6 +221,7 @@ public class LogInFragment extends Fragment {
                                 @Override
                                 public void onResponse(String res) {
                                     // Display the first 500 characters of the response string.
+                                    progressBar.setVisibility(View.GONE);
                                     if(res.equals("no")){
                                         new AlertDialog.Builder(requireContext())
                                                 .setTitle("Wrong email !")

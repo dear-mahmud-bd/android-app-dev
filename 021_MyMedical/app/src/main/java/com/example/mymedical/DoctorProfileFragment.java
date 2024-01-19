@@ -1,6 +1,8 @@
 package com.example.mymedical;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -43,13 +45,31 @@ public class DoctorProfileFragment extends Fragment {
         doctorLogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editorD.putString("Loginfileasdoctor","false");
-                editorD.commit();
-                Intent myIntent = new Intent(getActivity(), MainActivity.class);
-                startActivity(myIntent);
-                getActivity().finishAffinity();
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Logout Confirmation")
+                        .setMessage("Are you sure you want to log out?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // User clicked "Yes," perform logout
+                                editorD.putString("Loginfileasdoctor", "false");
+                                editorD.commit();
+                                Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                                startActivity(myIntent);
+                                getActivity().finishAffinity();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // User clicked "No," stay logged in
+                                // Optionally, you can dismiss the dialog here
+                            }
+                        })
+                        .show();
             }
         });
+
         doctorId = sharedPreferencesD.getString("profileD", "");
         textDoctorID = fragmentView.findViewById(R.id.textDoctorID);
         textName = fragmentView.findViewById(R.id.textName);
@@ -92,7 +112,7 @@ public class DoctorProfileFragment extends Fragment {
             }
         });
         queue.add(stringRequest);
-        
+
         return fragmentView;
     }
 }
