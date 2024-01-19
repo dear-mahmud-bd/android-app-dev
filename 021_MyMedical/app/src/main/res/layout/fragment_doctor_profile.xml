@@ -62,4 +62,11 @@
         android:textSize="16sp"
         android:layout_marginTop="8dp"/>
 
+    <Button
+        android:id="@+id/doctorLogoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        />
+
 </LinearLayout>

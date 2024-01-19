@@ -1,5 +1,8 @@
 package com.example.mymedical;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,11 +30,11 @@ import java.util.HashMap;
 
 
 public class PatientProfileFragment extends Fragment {
+    SharedPreferences sharedPreferencesP;
+    SharedPreferences.Editor editorP;
     TextView textPatientID, textName, textDOB, textBloodType, textFamilyDisease;
     ProgressBar profileProgressBar;
-
-
-
+    Button patientLogoutBtn;
     String patientId;
     public void setPatientId(String patientId) { this.patientId = patientId; }
     @Override
@@ -38,6 +42,20 @@ public class PatientProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View fragmentView = inflater.inflate(R.layout.fragment_patient_profile, container, false);
 
+
+        patientLogoutBtn = fragmentView.findViewById(R.id.patientLogoutBtn);
+        sharedPreferencesP = getActivity().getSharedPreferences("Loginfileaspatiant", Context.MODE_PRIVATE);
+        editorP = sharedPreferencesP.edit();
+        patientLogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editorP.putString("Loginfileaspatiant","false");
+                editorP.commit();
+                Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        patientId = sharedPreferencesP.getString("profileP", "");
         textPatientID = fragmentView.findViewById(R.id.textPatientID);
         textName = fragmentView.findViewById(R.id.textName);
         textDOB = fragmentView.findViewById(R.id.textDOB);
@@ -45,44 +63,51 @@ public class PatientProfileFragment extends Fragment {
         textFamilyDisease = fragmentView.findViewById(R.id.textFamilyDisease);
         profileProgressBar = fragmentView.findViewById(R.id.profileProgressBar);
 
+
         RequestQueue queue = Volley.newRequestQueue(requireContext());
         profileProgressBar.setVisibility(View.VISIBLE);
         String url = "https://boom-test.000webhostapp.com/my-medical/patient_profile.php?paitent_id="+patientId;
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("serverResponse", response);
+            @Override
+            public void onResponse(String response) {
+                Log.d("serverResponse", response);
 
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
 
-                            String patientName = jsonObject.getString("name");
-                            String dob = jsonObject.getString("birth");
-                            String bloodType = jsonObject.getString("blood");
-                            String familyDisease = jsonObject.getString("family_diseas");
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
 
-                            textPatientID.setText("Patient ID: " + patientId);
-                            textName.setText("Name: " + patientName);
-                            textDOB.setText("Birth[Y-M-D]: " + dob);
-                            textBloodType.setText("Blood Type: " + bloodType);
-                            textFamilyDisease.setText("Family Disease: " + familyDisease);
 
-                            profileProgressBar.setVisibility(View.GONE);
+                    String patientName = jsonObject.getString("name");
+                    String dob = jsonObject.getString("birth");
+                    String bloodType = jsonObject.getString("blood");
+                    String familyDisease = jsonObject.getString("family_diseas");
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        } finally {
-                            profileProgressBar.setVisibility(View.GONE);
-                        }
-                    }
-                }, new Response.ErrorListener() {
+
+                    textPatientID.setText("Patient ID: " + patientId);
+                    textName.setText("Name: " + patientName);
+                    textDOB.setText("Birth[Y-M-D]: " + dob);
+                    textBloodType.setText("Blood Type: " + bloodType);
+                    textFamilyDisease.setText("Family Disease: " + familyDisease);
+
+
+                    profileProgressBar.setVisibility(View.GONE);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } finally {
+                    profileProgressBar.setVisibility(View.GONE);
+                }
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 textName.setText("Error! Try Again");
             }
         });
         queue.add(stringRequest);
+
 
         return fragmentView;
     }

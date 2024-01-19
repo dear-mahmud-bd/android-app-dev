@@ -1,5 +1,8 @@
 package com.example.mymedical;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,28 +27,36 @@ import org.json.JSONObject;
 
 public class DoctorProfileFragment extends Fragment {
     ProgressBar doctorProgressBar;
+    SharedPreferences sharedPreferencesD;
+    SharedPreferences.Editor editorD;
     TextView textDoctorID, textName, textDOB, textDegree, textSpecility;
-
-
-
-
-
-
-
+    Button doctorLogoutBtn;
     String doctorId;
     public void setDoctorId(String doctorId) { this.doctorId = doctorId; }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragmentView = inflater.inflate(R.layout.fragment_doctor_profile, container, false);
-
+        doctorLogoutBtn = fragmentView.findViewById(R.id.doctorLogoutBtn);
+        sharedPreferencesD = getActivity().getSharedPreferences("Loginfileasdoctor", Context.MODE_PRIVATE);
+        editorD = sharedPreferencesD.edit();
+        doctorLogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editorD.putString("Loginfileasdoctor","false");
+                editorD.commit();
+                Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(myIntent);
+                getActivity().finishAffinity();
+            }
+        });
+        doctorId = sharedPreferencesD.getString("profileD", "");
         textDoctorID = fragmentView.findViewById(R.id.textDoctorID);
         textName = fragmentView.findViewById(R.id.textName);
         textDOB = fragmentView.findViewById(R.id.textDOB);
         textDegree = fragmentView.findViewById(R.id.textDegree);
         textSpecility = fragmentView.findViewById(R.id.textSpecility);
         doctorProgressBar = fragmentView.findViewById(R.id.doctorProgressBar);
-
         RequestQueue queue = Volley.newRequestQueue(requireContext());
         doctorProgressBar.setVisibility(View.VISIBLE);
         String url = "https://boom-test.000webhostapp.com/my-medical/doctor_profile.php?doctor_id="+doctorId;
@@ -53,21 +65,17 @@ public class DoctorProfileFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Log.d("serverResponse", response);
-
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-
                     String doctorName = jsonObject.getString("name");
                     String doctorDOB = jsonObject.getString("birth");
                     String doctorDegree = jsonObject.getString("degree");
                     String doctorSpeciality = jsonObject.getString("specility");
-
                     textDoctorID.setText("Doctor ID: " + doctorId);
                     textName.setText("Name: " + doctorName);
                     textDOB.setText("Birth[Y-M-D]: " + doctorDOB);
                     textDegree.setText("Degree: " + doctorDegree);
                     textSpecility.setText("Speciality: " + doctorSpeciality);
-
                     doctorProgressBar.setVisibility(View.GONE);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -84,7 +92,7 @@ public class DoctorProfileFragment extends Fragment {
             }
         });
         queue.add(stringRequest);
-
+        
         return fragmentView;
     }
 }

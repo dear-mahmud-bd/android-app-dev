@@ -2,6 +2,7 @@ package com.example.mymedical;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +77,9 @@ public class SignUpFragment extends Fragment {
 
                 if (dobText == null || dobText.isEmpty()) {
                     Toast.makeText(getActivity(), "Set yor Birth", Toast.LENGTH_SHORT).show();
+                }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailEditText.setError("Valid Email is required");
+                    emailEditText.requestFocus();
                 } else if (!password.equals(confirmPassword)) {
                     Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else if (email.isEmpty() || password.isEmpty() || name.isEmpty() || blood.isEmpty()) {
@@ -104,6 +109,13 @@ public class SignUpFragment extends Fragment {
                                                         new AlertDialog.Builder(requireContext())
                                                                 .setTitle("Registration Successful !")
                                                                 .setMessage(response)
+                                                                .setCancelable(false)
+                                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                                    @Override
+                                                                    public void onClick(DialogInterface dialog, int which) {
+                                                                        dialog.dismiss(); // The user clicked "Yes", Dismiss the dialog
+                                                                    }
+                                                                })
                                                                 .show();
 
                                                         editTextName.setText("");
